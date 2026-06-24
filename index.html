@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alexandra Solohub — UX/UI Designer</title>
+
+  <!-- Favicon -->
+  <meta name="google-site-verification" content="sgmjC9pPxV3rLsxIzWReVsGxNTP_LUZAkmDTqrjuA0A">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="apple-touch-icon" href="favicon.svg">
+
+  <!-- SEO -->
+  <meta name="description" content="Alexandra Solohub — Junior UX/UI Designer. Creating clear, user-friendly, and visually appealing interfaces. Based in Dublin, studying at KAMA.">
+  <meta name="keywords" content="UX designer, UI designer, portfolio, junior designer, Figma, Dublin, KAMA">
+  <meta name="author" content="Alexandra Solohub">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Alexandra Solohub — UX/UI Designer">
+  <meta property="og:description" content="Creating clear, user-friendly, and visually appealing interfaces.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://alexandra-solohub-portfolio.vercel.app/photo.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="canonical" href="https://alexandra-solohub-portfolio.vercel.app/">
+  <meta property="og:url" content="https://alexandra-solohub-portfolio.vercel.app/">
+  <meta name="twitter:title" content="Alexandra Solohub — UX/UI Designer">
+  <meta name="twitter:image" content="https://alexandra-solohub-portfolio.vercel.app/photo.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #000000;
+      --white: #ffffff;
+      --off-white: #F5F5F3;
+      --grey: #868686;
+      --light-grey: #D2D2D2;
+      --border: #000000;
+      --serif: 'Inria Serif', Georgia, serif;
+      --display: 'Playfair Display', Georgia, serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--serif);
+      background: var(--white);
+      color: var(--black);
+      font-size: 16px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 48px;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--black);
+    }
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 14px;
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--black);
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 40px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: var(--serif);
+      font-size: 13px;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--grey);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--black); }
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--black);
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 48px 72px;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--black);
+    }
+    .hero-bg-text {
+      position: absolute;
+      bottom: 40px;
+      left: -8px;
+      font-family: var(--display);
+      font-size: clamp(100px, 18vw, 200px);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--light-grey);
+      line-height: 1;
+      user-select: none;
+      pointer-events: none;
+      white-space: nowrap;
+      letter-spacing: -0.02em;
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 700px; }
+    .hero-eyebrow {
+      font-family: var(--serif);
+      font-size: 13px;
+      font-weight: 300;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--grey);
+      margin-bottom: 16px;
+    }
+    .hero-name {
+      font-family: var(--display);
+      font-size: clamp(48px, 8vw, 96px);
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      color: var(--black);
+      margin-bottom: 28px;
+    }
+    .hero-desc {
+      font-family: var(--serif);
+      font-size: 20px;
+      font-weight: 300;
+      color: var(--grey);
+      line-height: 1.6;
+      max-width: 460px;
+      margin-bottom: 44px;
+      letter-spacing: -0.01em;
+    }
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--serif);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--black);
+      text-decoration: none;
+      border: 1px solid var(--black);
+      padding: 14px 28px;
+      transition: background 0.2s, color 0.2s;
+      cursor: pointer;
+      background: transparent;
+    }
+    .btn-outline:hover { background: var(--black); color: var(--white); }
+    .btn-filled {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--serif);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--white);
+      text-decoration: none;
+      border: 1px solid var(--black);
+      padding: 14px 28px;
+      background: var(--black);
+      transition: background 0.2s, color 0.2s;
+      cursor: pointer;
+    }
+    .btn-filled:hover { background: transparent; color: var(--black); }
+    .btn-outline svg, .btn-filled svg { width: 14px; height: 14px; flex-shrink: 0; }
+    .hero-meta {
+      position: absolute;
+      right: 48px;
+      bottom: 72px;
+      text-align: right;
+      z-index: 1;
+    }
+    .hero-meta p {
+      font-family: var(--serif);
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--grey);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      line-height: 2;
+    }
+
+    /* ── SECTIONS ── */
+    section { border-bottom: 1px solid var(--black); }
+    .sec-inner { padding: 80px 48px; }
+    .sec-label {
+      font-family: var(--serif);
+      font-size: 12px;
+      font-weight: 300;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--grey);
+      margin-bottom: 48px;
+    }
+
+    /* ── ABOUT ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .about-photo {
+      width: 220px;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      border: 1px solid var(--light-grey);
+    }
+    .about-name {
+      font-family: var(--display);
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+      color: var(--black);
+    }
+    .about-role {
+      font-family: var(--serif);
+      font-size: 13px;
+      font-weight: 300;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--grey);
+      margin-bottom: 28px;
+    }
+    .about-text {
+      font-family: var(--serif);
+      font-size: 18px;
+      font-weight: 300;
+      color: var(--grey);
+      line-height: 1.7;
+      margin-bottom: 14px;
+      letter-spacing: -0.01em;
+    }
+    .about-divider { height: 1px; background: var(--light-grey); margin: 28px 0; }
+    .about-meta-row { display: flex; gap: 56px; flex-wrap: wrap; }
+    .about-meta-col p:first-child {
+      font-family: var(--serif);
+      font-size: 11px;
+      font-weight: 300;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--grey);
+      margin-bottom: 10px;
+    }
+    .about-meta-col p:last-child {
+      font-family: var(--serif);
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--black);
+      line-height: 1.8;
+      letter-spacing: -0.01em;
+    }
+
+    /* ── SKILLS ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--black);
+    }
+    .sk-col {
+      padding: 36px 32px 36px 0;
+      border-right: 1px solid var(--black);
+    }
+    .sk-col:last-child { border-right: none; padding-left: 32px; padding-right: 0; }
+    .sk-col:nth-child(2) { padding-left: 32px; }
+    .sk-col-label {
+      font-family: var(--serif);
+      font-size: 11px;
+      font-weight: 300;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--grey);
+      margin-bottom: 20px;
+    }
+    .sk-list { list-style: none; }
+    .sk-list li {
+      font-family: var(--serif);
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--black);
+      padding: 9px 0;
+      border-bottom: 1px solid var(--light-grey);
+      letter-spacing: -0.01em;
+    }
+    .sk-list li:last-child { border-bottom: none; }
+    .tool-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--light-grey);
+    }
+    .tool-item:last-child { border-bottom: none; }
+    .tool-icon {
+      width: 36px;
+      height: 36px;
+      border: 1px solid var(--light-grey);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .tool-icon svg, .tool-icon img { width: 20px; height: 20px; object-fit: contain; }
+    .tool-name {
+      font-family: var(--serif);
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--black);
+      letter-spacing: -0.01em;
+    }
+    .tool-note {
+      font-family: var(--serif);
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--grey);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── CASES ── */
+    .case-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-top: 1px solid var(--black);
+    }
+    .case-row:last-child { border-bottom: none; }
+    .case-img {
+      overflow: hidden;
+      border-right: 1px solid var(--black);
+      min-height: 340px;
+      max-height: 420px;
+    }
+    .case-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
+      transition: transform 0.7s ease;
+    }
+    .case-row:hover .case-img img { transform: scale(1.02); }
+    .case-info {
+      padding: 52px 44px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .case-num {
+      font-family: var(--serif);
+      font-size: 56px;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--light-grey);
+      line-height: 1;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+    .case-title {
+      font-family: var(--display);
+      font-size: clamp(24px, 3vw, 38px);
+      font-weight: 400;
+      color: var(--black);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+    .case-meta { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px; }
+    .badge {
+      font-family: var(--serif);
+      font-size: 11px;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: 1px solid var(--black);
+      padding: 5px 12px;
+      color: var(--black);
+    }
+    .case-desc {
+      font-family: var(--serif);
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--grey);
+      line-height: 1.75;
+      letter-spacing: -0.01em;
+      margin-bottom: 36px;
+    }
+    .case-row.reverse .case-img {
+      border-right: none;
+      border-left: 1px solid var(--black);
+      order: 2;
+    }
+    .case-row.reverse .case-info { order: 1; }
+
+    /* ── PERSONAS ── */
+    .persona-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--black);
+    }
+    .persona-col {
+      padding: 36px 32px 36px 0;
+      border-right: 1px solid var(--black);
+    }
+    .persona-col:last-child { border-right: none; padding-left: 32px; padding-right: 0; }
+    .persona-col:nth-child(2) { padding-left: 32px; }
+    .persona-photo {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      margin-bottom: 24px;
+      border: 1px solid var(--light-grey);
+    }
+    .persona-name {
+      font-family: var(--display);
+      font-size: 26px;
+      font-weight: 400;
+      color: var(--black);
+      letter-spacing: -0.01em;
+      margin-bottom: 4px;
+    }
+    .persona-role {
+      font-family: var(--serif);
+      font-size: 11px;
+      font-weight: 300;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--grey);
+      margin-bottom: 16px;
+    }
+    .persona-divider { height: 1px; background: var(--light-grey); margin-bottom: 16px; }
+    .persona-section-label {
+      font-family: var(--serif);
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--grey);
+      margin-bottom: 10px;
+    }
+    .persona-list { list-style: none; margin-bottom: 20px; }
+    .persona-list li {
+      font-family: var(--serif);
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--black);
+      padding: 6px 0;
+      border-bottom: 1px solid var(--light-grey);
+      letter-spacing: -0.01em;
+    }
+    .persona-list li:last-child { border-bottom: none; }
+    .persona-quote-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      border-top: 1px solid var(--light-grey);
+      padding-top: 36px;
+      margin-top: 40px;
+    }
+    .persona-quote {
+      font-family: var(--serif);
+      font-size: 16px;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--black);
+      line-height: 1.7;
+      letter-spacing: -0.01em;
+      margin-bottom: 12px;
+    }
+    .persona-quote-author {
+      font-family: var(--serif);
+      font-size: 11px;
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--grey);
+    }
+
+    /* ── PROCESS ── */
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      border-top: 1px solid var(--black);
+    }
+    .p-step {
+      padding: 36px 24px 36px 0;
+      border-right: 1px solid var(--black);
+    }
+    .p-step:last-child { border-right: none; padding-left: 24px; padding-right: 0; }
+    .p-step:not(:first-child) { padding-left: 24px; }
+    .p-num {
+      font-family: var(--serif);
+      font-size: 52px;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--light-grey);
+      line-height: 1;
+      margin-bottom: 18px;
+      letter-spacing: -0.02em;
+    }
+    .p-title {
+      font-family: var(--serif);
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--black);
+      margin-bottom: 10px;
+    }
+    .p-desc {
+      font-family: var(--serif);
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--grey);
+      line-height: 1.7;
+      letter-spacing: -0.01em;
+    }
+
+    /* ── CONTACT ── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-top: 1px solid var(--black);
+    }
+    .c-left {
+      padding: 60px 56px 60px 0;
+      border-right: 1px solid var(--black);
+    }
+    .c-right { padding: 60px 0 60px 56px; }
+    .c-title {
+      font-family: var(--display);
+      font-size: clamp(36px, 5vw, 60px);
+      font-weight: 400;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      color: var(--black);
+      margin-bottom: 28px;
+    }
+    .c-sub {
+      font-family: var(--serif);
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--grey);
+      line-height: 1.7;
+      letter-spacing: -0.01em;
+      margin-bottom: 36px;
+      max-width: 340px;
+    }
+    .avail { display: flex; align-items: center; gap: 10px; }
+    .avail-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: #2d5a27;
+      flex-shrink: 0;
+    }
+    .avail-text {
+      font-family: var(--serif);
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--grey);
+      letter-spacing: 0.06em;
+    }
+    .c-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--light-grey);
+    }
+    .c-item:first-child { border-top: 1px solid var(--black); }
+    .c-label {
+      font-family: var(--serif);
+      font-size: 11px;
+      font-weight: 300;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--grey);
+    }
+    .c-val {
+      font-family: var(--serif);
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--black);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      letter-spacing: -0.01em;
+      transition: color 0.2s;
+    }
+    .c-val:hover { color: var(--grey); }
+    .c-val svg { width: 14px; height: 14px; color: var(--grey); flex-shrink: 0; }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 24px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--black);
+    }
+    footer p {
+      font-family: var(--serif);
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--grey);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* ── REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 16px 24px; background: var(--white); }
+      .nav-links {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0; right: 0; bottom: 0;
+        width: 75%;
+        max-width: 300px;
+        background: #ffffff !important;
+        padding: 80px 32px 32px;
+        border-left: 1px solid #000;
+        gap: 32px;
+        z-index: 9999;
+        transform: translateX(100%);
+        transition: transform 0.35s ease;
+        visibility: hidden;
+        box-shadow: -4px 0 24px rgba(0,0,0,0.15);
+      }
+      .nav-links.open {
+        transform: translateX(0);
+        visibility: visible;
+      }
+      .nav-links a {
+        font-size: 16px !important;
+        color: #000 !important;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        font-family: var(--serif);
+        font-weight: 300;
+        text-decoration: none;
+      }
+      .nav-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.4);
+        z-index: 9998;
+      }
+      .nav-overlay.open { display: block; }
+      .nav-toggle { display: flex; z-index: 10000; position: relative; }
+      .hero { padding: 0 24px 56px; }
+      .hero-meta { right: 24px; bottom: 56px; }
+      .sec-inner { padding: 56px 24px; }
+      .about-grid { grid-template-columns: 1fr; gap: 32px; }
+      .about-photo { width: 160px; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .sk-col { border-right: none; border-bottom: 1px solid var(--black); padding: 28px 0; }
+      .sk-col:last-child { border-bottom: none; }
+      .sk-col:nth-child(2) { padding-left: 0; }
+      .case-row { grid-template-columns: 1fr; }
+      .case-img { min-height: 260px; border-right: none !important; border-bottom: 1px solid var(--black); }
+      .case-info { padding: 32px 24px; }
+      .case-row.reverse .case-img { order: 0; border-left: none !important; border-bottom: 1px solid var(--black); }
+      .case-row.reverse .case-info { order: 0; }
+      .persona-grid { grid-template-columns: 1fr; }
+      .persona-col { border-right: none; border-bottom: 1px solid var(--black); padding: 28px 0; }
+      .persona-col:last-child { border-bottom: none; }
+      .persona-col:nth-child(2) { padding-left: 0; }
+      .persona-quote-grid { grid-template-columns: 1fr; }
+      .process-grid { grid-template-columns: 1fr 1fr; }
+      .p-step { border-right: none; border-bottom: 1px solid var(--light-grey); padding: 28px 0; }
+      .p-step:last-child { border-bottom: none; }
+      .p-step:not(:first-child) { padding-left: 0; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .c-left { border-right: none; border-bottom: 1px solid var(--black); padding: 40px 0; }
+      .c-right { padding: 40px 0; }
+      footer { padding: 20px 24px; flex-direction: column; gap: 8px; text-align: center; }
+    }
+
+    @media (max-width: 540px) {
+      .process-grid { grid-template-columns: 1fr; }
+      .about-meta-row { flex-direction: column; gap: 24px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#" class="nav-logo">A. Solohub</a>
+    <button class="nav-toggle" aria-label="Open menu" id="navToggle">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navDesktop">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- MOBILE DRAWER -->
+  <div id="mobileDrawer" style="display:none;position:fixed;top:0;right:0;bottom:0;width:280px;background:#ffffff;z-index:99999;padding:80px 32px 32px;border-left:2px solid #000;box-shadow:-8px 0 32px rgba(0,0,0,0.15);flex-direction:column;gap:32px;">
+    <a href="#about" class="drawer-link" style="font-family:serif;font-size:15px;letter-spacing:0.14em;text-transform:uppercase;color:#000;text-decoration:none;display:block;">About</a>
+    <a href="#skills" class="drawer-link" style="font-family:serif;font-size:15px;letter-spacing:0.14em;text-transform:uppercase;color:#000;text-decoration:none;display:block;">Skills</a>
+    <a href="#work" class="drawer-link" style="font-family:serif;font-size:15px;letter-spacing:0.14em;text-transform:uppercase;color:#000;text-decoration:none;display:block;">Work</a>
+    <a href="#process" class="drawer-link" style="font-family:serif;font-size:15px;letter-spacing:0.14em;text-transform:uppercase;color:#000;text-decoration:none;display:block;">Process</a>
+    <a href="#contact" class="drawer-link" style="font-family:serif;font-size:15px;letter-spacing:0.14em;text-transform:uppercase;color:#000;text-decoration:none;display:block;">Contact</a>
+  </div>
+  <div id="mobileOverlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:99998;"></div>
+
+  <section class="hero">
+    <div class="hero-bg-text">Portfolio</div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">UX/UI Designer &nbsp;·&nbsp; 2026</p>
+      <h1 class="hero-name">Alexandra<br>Solohub</h1>
+      <p class="hero-desc">Creating clear, user-friendly, and visually appealing interfaces — with attention to detail and a focus on the user.</p>
+      <a href="#work" class="btn-outline">
+        View work
+        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.2"><line x1="0" y1="7" x2="12" y2="7"/><polyline points="7,2 12,7 7,12"/></svg>
+      </a>
+    </div>
+    <div class="hero-meta">
+      <p>KAMA</p>
+      <p>Dublin, IE</p>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="sec-inner">
+      <p class="sec-label">About me</p>
+      <div class="about-grid reveal">
+        <div>
+          <img src="photo.jpg" alt="Alexandra Solohub" class="about-photo">
+        </div>
+        <div>
+          <h2 class="about-name">Alexandra Solohub</h2>
+          <p class="about-role">Junior UX/UI Designer</p>
+          <p class="about-text">Studying UX/UI Design at KAMA and developing in the field of digital design. I enjoy creating clear, user-friendly, and visually appealing interfaces — paying attention to detail and users' needs.</p>
+          <p class="about-text">Structured and detail-focused. I start by understanding the user and the problem before moving into design. I prefer clean, simple interfaces and improve my work through iterations and feedback.</p>
+          <div class="about-divider"></div>
+          <div class="about-meta-row">
+            <div class="about-meta-col">
+              <p>Education</p>
+              <p>KAMA — UX/UI Design, 2026<br>Ó Fiaich Institute<br>Business & Computing, L5 & L6</p>
+            </div>
+            <div class="about-meta-col">
+              <p>Languages</p>
+              <p>Ukrainian — native<br>Russian — native<br>English — B1</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="sec-inner">
+      <p class="sec-label">Skills & Tools</p>
+      <div class="skills-grid reveal">
+        <div class="sk-col">
+          <p class="sk-col-label">UX</p>
+          <ul class="sk-list">
+            <li>User research</li>
+            <li>Wireframing</li>
+            <li>User flows</li>
+            <li>Interface structure</li>
+            <li>Logical thinking</li>
+          </ul>
+        </div>
+        <div class="sk-col">
+          <p class="sk-col-label">UI</p>
+          <ul class="sk-list">
+            <li>Clean interface design</li>
+            <li>Layout & spacing</li>
+            <li>Typography basics</li>
+            <li>Color basics</li>
+            <li>Simple design systems</li>
+          </ul>
+        </div>
+        <div class="sk-col">
+          <p class="sk-col-label">Tools</p>
+          <div class="tool-item">
+            <div class="tool-icon">
+              <svg viewBox="0 0 38 57" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19 28.5C19 25.98 20 23.56 21.78 21.78C23.56 20 25.98 19 28.5 19C31.02 19 33.44 20 35.22 21.78C36.99 23.56 38 25.98 38 28.5C38 31.02 36.99 33.44 35.22 35.22C33.44 36.99 31.02 38 28.5 38C25.98 38 23.56 36.99 21.78 35.22C20 33.44 19 31.02 19 28.5Z" fill="#1ABCFE"/><path d="M0 47.5C0 44.98 1 42.56 2.78 40.78C4.56 39 6.98 38 9.5 38H19V47.5C19 50.02 17.99 52.44 16.22 54.22C14.44 55.99 12.02 57 9.5 57C6.98 57 4.56 55.99 2.78 54.22C1 52.44 0 50.02 0 47.5Z" fill="#0ACF83"/><path d="M19 0V19H28.5C31.02 19 33.44 17.99 35.22 16.22C36.99 14.44 38 12.02 38 9.5C38 6.98 36.99 4.56 35.22 2.78C33.44 1 31.02 0 28.5 0H19Z" fill="#FF7262"/><path d="M0 9.5C0 12.02 1 14.44 2.78 16.22C4.56 17.99 6.98 19 9.5 19H19V0H9.5C6.98 0 4.56 1 2.78 2.78C1 4.56 0 6.98 0 9.5Z" fill="#F24E1E"/><path d="M0 28.5C0 31.02 1 33.44 2.78 35.22C4.56 36.99 6.98 38 9.5 38H19V19H9.5C6.98 19 4.56 20 2.78 21.78C1 23.56 0 25.98 0 28.5Z" fill="#A259FF"/></svg>
+            </div>
+            <div><div class="tool-name">Figma</div><div class="tool-note">Main tool</div></div>
+          </div>
+          <div class="tool-item">
+            <div class="tool-icon">
+              <svg viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="8" fill="#F6F0FF"/><path d="M20 8C20 8 12 14 12 21C12 25.42 15.58 29 20 29C24.42 29 28 25.42 28 21C28 14 20 8 20 8Z" fill="#9B5DE5"/><circle cx="20" cy="21" r="4" fill="white"/><path d="M20 29V33" stroke="#9B5DE5" stroke-width="2" stroke-linecap="round"/><path d="M16 33H24" stroke="#9B5DE5" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <div><div class="tool-name">FigJam</div><div class="tool-note">Brainstorming & flows</div></div>
+          </div>
+          <div class="tool-item">
+            <div class="tool-icon">
+              <svg viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="8" fill="#7D2AE7"/><path d="M20 10C14.48 10 10 14.48 10 20C10 25.52 14.48 30 20 30C25.52 30 30 25.52 30 20C30 14.48 25.52 10 20 10ZM20 16C21.66 16 23 17.34 23 19C23 20.66 21.66 22 20 22C18.34 22 17 20.66 17 19C17 17.34 18.34 16 20 16Z" fill="white"/></svg>
+            </div>
+            <div><div class="tool-name">Canva</div><div class="tool-note">Basic</div></div>
+          </div>
+          <div class="tool-item">
+            <div class="tool-icon">
+              <svg viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="4" fill="#001D34"/><path d="M10 28V12H16.5C17.9 12 19.1 12.5 20 13.4C20.9 14.3 21.4 15.5 21.4 16.9C21.4 18.3 20.9 19.5 20 20.4C19.1 21.3 17.9 21.8 16.5 21.8H13.2V28H10ZM13.2 19H16.2C16.9 19 17.5 18.8 17.9 18.3C18.3 17.9 18.5 17.4 18.5 16.9C18.5 16.3 18.3 15.8 17.9 15.4C17.5 15 16.9 14.8 16.2 14.8H13.2V19Z" fill="#31A8FF"/></svg>
+            </div>
+            <div><div class="tool-name">Photoshop</div><div class="tool-note">Basic</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="sec-inner" style="padding-bottom:0;">
+      <p class="sec-label">Case Studies</p>
+    </div>
+    <div class="case-row reveal">
+      <div class="case-img">
+        <img src="maison-virelle.png" alt="Travel Lux Odessa">
+      </div>
+      <div class="case-info">
+        <div>
+          <p class="case-num">01</p>
+          <h2 class="case-title">Travel Lux Odessa</h2>
+          <div class="case-meta">
+            <span class="badge">Landing Page</span>
+            <span class="badge">Tourism</span>
+            <span class="badge">UI Design</span>
+          </div>
+          <p class="case-desc">A premium travel landing page for a luxury 3-day tour across the Odesa region. Editorial typography, immersive photography, and a clean layout designed to evoke exclusivity and drive bookings.</p>
+        </div>
+        <a href="travel-lux-case.html" class="btn-outline">
+          View Case Study
+          <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.2"><line x1="0" y1="7" x2="12" y2="7"/><polyline points="7,2 12,7 7,12"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="case-row reverse reveal">
+      <div class="case-img">
+        <img src="travel-lux.png" alt="Maison Virelle">
+      </div>
+      <div class="case-info">
+        <div>
+          <p class="case-num">02</p>
+          <h2 class="case-title">Maison Virelle</h2>
+          <div class="case-meta">
+            <span class="badge">E-commerce</span>
+            <span class="badge">Fashion</span>
+            <span class="badge">Art Direction</span>
+          </div>
+          <p class="case-desc">A conceptual luxury couture e-commerce website that transforms an online store into a premium digital fashion experience — a virtual couture showroom where every collection tells a story.</p>
+        </div>
+        <a href="maison-virelle-case.html" class="btn-outline">
+          View Case Study
+          <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.2"><line x1="0" y1="7" x2="12" y2="7"/><polyline points="7,2 12,7 7,12"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="process">
+    <div class="sec-inner">
+      <p class="sec-label">My Process</p>
+      <div class="process-grid reveal">
+        <div class="p-step">
+          <p class="p-num">1</p>
+          <p class="p-title">Understand</p>
+          <p class="p-desc">Explore the user and the problem — needs, context, pain points. No design without understanding first.</p>
+        </div>
+        <div class="p-step">
+          <p class="p-num">2</p>
+          <p class="p-title">Define</p>
+          <p class="p-desc">Structure the problem — user flows, information architecture, key goals. Clarity before creativity.</p>
+        </div>
+        <div class="p-step">
+          <p class="p-num">3</p>
+          <p class="p-title">Wireframe</p>
+          <p class="p-desc">Low-fidelity sketches to explore layout and logic without getting distracted by visuals.</p>
+        </div>
+        <div class="p-step">
+          <p class="p-num">4</p>
+          <p class="p-title">Design</p>
+          <p class="p-desc">Clean interfaces in Figma — spacing, typography, visual hierarchy to guide the user naturally.</p>
+        </div>
+        <div class="p-step">
+          <p class="p-num">5</p>
+          <p class="p-title">Iterate</p>
+          <p class="p-desc">Refine through feedback and testing. Good design improves through iteration.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="sec-inner">
+      <p class="sec-label">Contact</p>
+      <div class="contact-grid reveal">
+        <div class="c-left">
+          <h2 class="c-title">Let's work<br>together.</h2>
+          <p class="c-sub">Open to collaborations, educational projects, and new opportunities in UX/UI design.</p>
+          <div class="avail" style="margin-bottom:32px;">
+            <div class="avail-dot"></div>
+            <p class="avail-text">Available for freelance & junior positions</p>
+          </div>
+          <a href="mailto:aelixandra.ea@gmail.com" class="btn-filled">
+            Get in touch
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.2"><line x1="0" y1="7" x2="12" y2="7"/><polyline points="7,2 12,7 7,12"/></svg>
+          </a>
+        </div>
+        <div class="c-right">
+          <div class="c-item">
+            <span class="c-label">Email</span>
+            <a href="mailto:aelixandra.ea@gmail.com" class="c-val">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+              aelixandra.ea@gmail.com
+            </a>
+          </div>
+          <div class="c-item">
+            <span class="c-label">Phone</span>
+            <a href="tel:+353879841413" class="c-val">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.36a2 2 0 0 1 2-2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              +353 879 841 413
+            </a>
+          </div>
+          <div class="c-item">
+            <span class="c-label">LinkedIn</span>
+            <a href="https://www.linkedin.com/in/oleksandra-solohub-0393a4417/" target="_blank" rel="noopener" class="c-val">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              linkedin.com/in/oleksandra-solohub
+            </a>
+          </div>
+          <div class="c-item">
+            <span class="c-label">Behance</span>
+            <a href="https://www.behance.net/aleksandras12" target="_blank" rel="noopener" class="c-val">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12h8.5a3.5 3.5 0 0 0 0-7H2v14h9a3.5 3.5 0 0 0 0-7H2"/><path d="M15 7h7M15.5 17a4 4 0 0 0 7.5-2h-7.5A4 4 0 0 1 19.5 11a4 4 0 0 1 3.5 2"/></svg>
+              behance.net/aleksandras12
+            </a>
+          </div>
+          <div class="c-item">
+            <span class="c-label">Instagram</span>
+            <a href="https://www.instagram.com/ae.lixandra" target="_blank" rel="noopener" class="c-val">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
+              @ae.lixandra
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Alexandra Solohub — UX/UI Designer</p>
+    <p>2026</p>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('navToggle');
+    const drawer = document.getElementById('mobileDrawer');
+    const overlay = document.getElementById('mobileOverlay');
+
+    function openNav() {
+      drawer.style.display = 'flex';
+      overlay.style.display = 'block';
+      document.body.style.overflow = 'hidden';
+    }
+    function closeNav() {
+      drawer.style.display = 'none';
+      overlay.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+
+    if (toggle) {
+      toggle.addEventListener('click', () => {
+        drawer.style.display === 'flex' ? closeNav() : openNav();
+      });
+    }
+    if (overlay) overlay.addEventListener('click', closeNav);
+    document.querySelectorAll('.drawer-link').forEach(a => {
+      a.addEventListener('click', closeNav);
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+      });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // ── CUSTOM CURSOR + TRAIL ──
+    const cursor = document.createElement('div');
+    cursor.id = 'cursor-main';
+    cursor.style.cssText = `
+      position: fixed; top: 0; left: 0; z-index: 9999;
+      width: 10px; height: 10px;
+      background: #000;
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      transition: transform 0.1s ease, width 0.2s ease, height 0.2s ease;
+      mix-blend-mode: difference;
+    `;
+    document.body.appendChild(cursor);
+    document.body.style.cursor = 'none';
+
+    // Ring that follows with delay
+    const ring = document.createElement('div');
+    ring.style.cssText = `
+      position: fixed; top: 0; left: 0; z-index: 9998;
+      width: 32px; height: 32px;
+      border: 1px solid rgba(0,0,0,0.3);
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  left 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  top 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    `;
+    document.body.appendChild(ring);
+
+    let mx = 0, my = 0;
+    const dots = [];
+    const MAX_DOTS = 18;
+
+    function createDot(x, y) {
+      const dot = document.createElement('div');
+      const size = Math.random() * 3 + 2;
+      dot.style.cssText = `
+        position: fixed; z-index: 9997;
+        width: ${size}px; height: ${size}px;
+        background: #000;
+        border-radius: 50%;
+        pointer-events: none;
+        left: ${x}px; top: ${y}px;
+        transform: translate(-50%, -50%);
+        opacity: 0.7;
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      `;
+      document.body.appendChild(dot);
+      dots.push({ el: dot, born: Date.now() });
+
+      // fade out
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          dot.style.opacity = '0';
+          dot.style.transform = `translate(-50%, -50%) scale(0.3)`;
+        });
+      });
+
+      // remove after fade
+      setTimeout(() => {
+        dot.remove();
+        const idx = dots.findIndex(d => d.el === dot);
+        if (idx > -1) dots.splice(idx, 1);
+      }, 650);
+    }
+
+    let lastDotTime = 0;
+    document.addEventListener('mousemove', (e) => {
+      mx = e.clientX; my = e.clientY;
+      cursor.style.left = mx + 'px';
+      cursor.style.top = my + 'px';
+      ring.style.left = mx + 'px';
+      ring.style.top = my + 'px';
+
+      const now = Date.now();
+      if (now - lastDotTime > 40) {
+        createDot(mx, my);
+        lastDotTime = now;
+      }
+    });
+
+    // Cursor grow on hover
+    document.querySelectorAll('a, button, .case-row, .btn-outline, .btn-filled').forEach(el => {
+      el.style.cursor = 'none';
+      el.addEventListener('mouseenter', () => {
+        cursor.style.width = '20px';
+        cursor.style.height = '20px';
+        ring.style.width = '48px';
+        ring.style.height = '48px';
+        ring.style.borderColor = 'rgba(0,0,0,0.5)';
+      });
+      el.addEventListener('mouseleave', () => {
+        cursor.style.width = '10px';
+        cursor.style.height = '10px';
+        ring.style.width = '32px';
+        ring.style.height = '32px';
+        ring.style.borderColor = 'rgba(0,0,0,0.3)';
+      });
+    });
+
+    // Hide on mobile
+    if ('ontouchstart' in window) {
+      cursor.style.display = 'none';
+      ring.style.display = 'none';
+      document.body.style.cursor = 'auto';
+    }
+  </script>
+</body>
+</html>
