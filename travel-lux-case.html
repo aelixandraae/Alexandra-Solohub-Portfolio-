@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Lux Odessa — Case Study · Alexandra Solohub</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black: #000000;
+      --white: #ffffff;
+      --grey: #868686;
+      --light-grey: #D2D2D2;
+      --off-white: #F8F8F6;
+      --serif: 'Inria Serif', Georgia, serif;
+      --display: 'Playfair Display', Georgia, serif;
+      --tl-bg: #FAFAF8;
+      --tl-black: #0D0D0D;
+      --tl-grey: #8C8C8C;
+      --tl-warm: #F0EDE8;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--serif); background: var(--white); color: var(--black); -webkit-font-smoothing: antialiased; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 18px 48px;
+      background: rgba(255,255,255,0.96); backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--black);
+    }
+    .nav-back { display: flex; align-items: center; gap: 10px; font-family: var(--serif); font-size: 12px; font-weight: 300; letter-spacing: 0.14em; text-transform: uppercase; color: var(--grey); text-decoration: none; transition: color 0.2s; }
+    .nav-back:hover { color: var(--black); }
+    .nav-back svg { width: 14px; height: 14px; }
+    .nav-title { font-family: var(--serif); font-size: 13px; font-weight: 300; letter-spacing: 0.08em; color: var(--black); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 8px; font-family: var(--serif); font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--white); background: var(--black); border: 1px solid var(--black); padding: 10px 24px; text-decoration: none; transition: background 0.2s, color 0.2s; }
+    .nav-cta:hover { background: transparent; color: var(--black); }
+
+    /* HERO */
+    .hero { background: var(--tl-bg); display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid var(--black); padding-top: 64px; align-items: stretch; }
+    .hero-left { padding: 64px 56px; display: flex; flex-direction: column; justify-content: center; border-right: 1px solid var(--black); }
+    .hero-tag { font-family: var(--serif); font-size: 11px; font-weight: 300; letter-spacing: 0.22em; text-transform: uppercase; color: var(--tl-grey); margin-bottom: 24px; }
+    .hero-title { font-family: var(--display); font-size: clamp(44px, 7vw, 84px); font-weight: 400; line-height: 1; letter-spacing: -0.02em; color: var(--tl-black); margin-bottom: 32px; }
+    .hero-title em { font-style: italic; }
+    .hero-desc { font-family: var(--serif); font-size: 17px; font-weight: 300; color: var(--tl-grey); line-height: 1.8; max-width: 420px; margin-bottom: 48px; }
+    .hero-stats { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--light-grey); padding-top: 32px; }
+    .stat { padding-right: 24px; border-right: 1px solid var(--light-grey); }
+    .stat:last-child { border-right: none; padding-left: 24px; padding-right: 0; }
+    .stat:nth-child(2) { padding-left: 24px; }
+    .stat-label { font-family: var(--serif); font-size: 10px; font-weight: 300; letter-spacing: 0.18em; text-transform: uppercase; color: var(--tl-grey); margin-bottom: 8px; }
+    .stat-val { font-family: var(--display); font-size: 20px; font-weight: 400; color: var(--tl-black); line-height: 1.3; }
+    .hero-right { overflow: hidden; height: 640px; }
+    .hero-right img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+
+    .sec { padding: 80px 48px; border-bottom: 1px solid var(--black); }
+    .sec-label { font-family: var(--serif); font-size: 10px; font-weight: 300; letter-spacing: 0.24em; text-transform: uppercase; color: var(--grey); margin-bottom: 48px; }
+    .sec-title { font-family: var(--display); font-size: clamp(26px, 4vw, 42px); font-weight: 400; letter-spacing: -0.02em; color: var(--black); margin-bottom: 24px; line-height: 1.1; }
+    .divider { height: 1px; background: var(--light-grey); margin: 32px 0; }
+
+    /* OVERVIEW */
+    .overview-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    .overview-text { font-family: var(--serif); font-size: 16px; font-weight: 300; color: var(--grey); line-height: 1.85; margin-bottom: 20px; }
+    .meta-row { display: flex; justify-content: space-between; align-items: baseline; padding: 14px 0; border-bottom: 1px solid var(--light-grey); }
+    .meta-row:first-child { border-top: 1px solid var(--black); }
+    .meta-key { font-family: var(--serif); font-size: 11px; font-weight: 300; letter-spacing: 0.14em; text-transform: uppercase; color: var(--grey); }
+    .meta-val { font-family: var(--serif); font-size: 13px; font-weight: 300; color: var(--black); text-align: right; }
+
+    /* PROBLEM GOAL */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--black); }
+    .two-col-item { padding: 48px 40px 48px 0; border-right: 1px solid var(--black); }
+    .two-col-item:last-child { border-right: none; padding-left: 40px; padding-right: 0; }
+    .two-col-num { font-family: var(--display); font-size: 60px; font-weight: 400; font-style: italic; color: var(--light-grey); line-height: 1; margin-bottom: 16px; }
+    .two-col-title { font-family: var(--serif); font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--black); margin-bottom: 16px; }
+    .two-col-text { font-family: var(--serif); font-size: 15px; font-weight: 300; color: var(--grey); line-height: 1.8; }
+
+    /* FULL IMAGE */
+    .full-img { width: 100%; height: 480px; overflow: hidden; border-bottom: 1px solid var(--black); }
+    .full-img img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+
+    /* STRUCTURE */
+    .structure-grid { display: grid; grid-template-columns: repeat(5, 1fr); border-top: 1px solid var(--black); }
+    .str-item { padding: 32px 20px 32px 0; border-right: 1px solid var(--black); }
+    .str-item:last-child { border-right: none; padding-left: 20px; padding-right: 0; }
+    .str-item:not(:first-child) { padding-left: 20px; }
+    .str-num { font-family: var(--display); font-size: 40px; font-weight: 400; font-style: italic; color: var(--light-grey); line-height: 1; margin-bottom: 12px; }
+    .str-title { font-family: var(--serif); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--black); margin-bottom: 8px; }
+    .str-desc { font-family: var(--serif); font-size: 12px; font-weight: 300; color: var(--grey); line-height: 1.7; }
+
+    /* LOCATIONS */
+    .locations-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--black); border: 1px solid var(--black); }
+    .location-card { background: var(--tl-bg); overflow: hidden; }
+    .location-img { height: 220px; overflow: hidden; }
+    .location-img img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; transition: transform 0.6s ease; }
+    .location-card:hover .location-img img { transform: scale(1.04); }
+    .location-body { padding: 24px; border-top: 1px solid var(--black); }
+    .location-day { font-family: var(--serif); font-size: 10px; font-weight: 300; letter-spacing: 0.18em; text-transform: uppercase; color: var(--tl-grey); margin-bottom: 8px; }
+    .location-name { font-family: var(--display); font-size: 20px; font-weight: 400; color: var(--tl-black); margin-bottom: 6px; }
+    .location-place { font-family: var(--serif); font-size: 11px; font-weight: 300; letter-spacing: 0.1em; text-transform: uppercase; color: var(--tl-grey); margin-bottom: 12px; }
+    .location-text { font-family: var(--serif); font-size: 13px; font-weight: 300; color: var(--tl-grey); line-height: 1.7; }
+
+    /* UI KIT */
+    .uikit-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; border-top: 1px solid var(--black); }
+    .uikit-col { padding: 40px 36px 40px 0; border-right: 1px solid var(--black); }
+    .uikit-col:last-child { border-right: none; padding-left: 36px; padding-right: 0; }
+    .uikit-col:nth-child(2) { padding-left: 36px; }
+    .uikit-label { font-family: var(--serif); font-size: 10px; font-weight: 300; letter-spacing: 0.22em; text-transform: uppercase; color: var(--grey); margin-bottom: 28px; }
+
+    .color-swatches { display: flex; flex-direction: column; gap: 14px; }
+    .swatch { display: flex; align-items: center; gap: 14px; }
+    .swatch-dot { width: 48px; height: 48px; border: 1px solid var(--light-grey); flex-shrink: 0; }
+    .swatch-name { font-family: var(--serif); font-size: 13px; font-weight: 400; color: var(--black); }
+    .swatch-hex { font-family: var(--serif); font-size: 11px; font-weight: 300; color: var(--grey); letter-spacing: 0.06em; }
+
+    .type-samples { display: flex; flex-direction: column; gap: 20px; }
+    .type-sample { border-bottom: 1px solid var(--light-grey); padding-bottom: 16px; }
+    .type-sample:last-child { border-bottom: none; }
+    .type-label-sm { font-family: var(--serif); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--grey); margin-bottom: 8px; }
+
+    .btn-samples { display: flex; flex-direction: column; gap: 14px; }
+    .tl-btn-filled { display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 14px; font-weight: 400; color: var(--white); background: var(--tl-black); border: 1px solid var(--tl-black); padding: 14px 28px; }
+    .tl-btn-outline { display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 14px; font-weight: 400; color: var(--tl-black); background: transparent; border: 1px solid var(--tl-black); padding: 14px 28px; }
+
+    /* REVIEWS */
+    .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--black); border: 1px solid var(--black); }
+    .review-card { background: var(--tl-bg); padding: 32px 28px; }
+    .review-stars { display: flex; gap: 3px; margin-bottom: 16px; }
+    .review-star { font-size: 13px; color: var(--tl-black); }
+    .review-text { font-family: var(--display); font-size: 14px; font-style: italic; font-weight: 400; color: var(--tl-black); line-height: 1.65; margin-bottom: 16px; }
+    .review-author { font-family: var(--serif); font-size: 11px; font-weight: 300; letter-spacing: 0.12em; text-transform: uppercase; color: var(--tl-grey); }
+
+    /* CTA SECTION */
+    .cta-section { background: var(--tl-black); padding: 80px 48px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--black); }
+    .cta-text {}
+    .cta-sub { font-family: var(--serif); font-size: 11px; font-weight: 300; letter-spacing: 0.2em; text-transform: uppercase; color: var(--grey); margin-bottom: 16px; }
+    .cta-title { font-family: var(--display); font-size: clamp(28px, 4vw, 48px); font-weight: 400; color: var(--white); line-height: 1.1; letter-spacing: -0.02em; }
+    .cta-title em { font-style: italic; }
+    .cta-price { font-family: var(--serif); font-size: 13px; font-weight: 300; color: var(--grey); margin-top: 12px; letter-spacing: 0.06em; }
+    .cta-btn { display: inline-flex; align-items: center; gap: 10px; font-family: var(--serif); font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--black); background: var(--white); border: 1px solid var(--white); padding: 16px 36px; text-decoration: none; flex-shrink: 0; transition: background 0.2s, color 0.2s; }
+    .cta-btn:hover { background: transparent; color: var(--white); }
+    .cta-btn svg { width: 13px; height: 13px; }
+
+    /* OUTCOME */
+    .outcome-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--black); }
+    .outcome-item { padding: 40px 36px 40px 0; border-right: 1px solid var(--black); }
+    .outcome-item:last-child { border-right: none; padding-left: 36px; padding-right: 0; }
+    .outcome-item:nth-child(2) { padding-left: 36px; }
+    .outcome-num { font-family: var(--display); font-size: 52px; font-weight: 400; color: var(--black); line-height: 1; margin-bottom: 8px; }
+    .outcome-label { font-family: var(--serif); font-size: 11px; font-weight: 300; letter-spacing: 0.14em; text-transform: uppercase; color: var(--grey); margin-bottom: 12px; }
+    .outcome-desc { font-family: var(--serif); font-size: 14px; font-weight: 300; color: var(--grey); line-height: 1.7; }
+
+    /* NEXT */
+    .next-project { padding: 80px 48px; display: flex; justify-content: space-between; align-items: center; background: var(--tl-black); }
+    .next-label { font-family: var(--serif); font-size: 11px; font-weight: 300; letter-spacing: 0.2em; text-transform: uppercase; color: var(--grey); margin-bottom: 12px; }
+    .next-title { font-family: var(--display); font-size: clamp(32px, 5vw, 56px); font-weight: 400; color: var(--white); letter-spacing: -0.02em; }
+    .next-btn { display: inline-flex; align-items: center; gap: 12px; font-family: var(--serif); font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--black); background: var(--white); border: 1px solid var(--white); padding: 16px 36px; text-decoration: none; flex-shrink: 0; transition: background 0.2s, color 0.2s; }
+    .next-btn:hover { background: transparent; color: var(--white); }
+    .next-btn svg { width: 13px; height: 13px; }
+
+    footer { padding: 24px 48px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--black); }
+    footer p { font-family: var(--serif); font-size: 11px; font-weight: 300; color: var(--grey); letter-spacing: 0.08em; text-transform: uppercase; }
+
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    @media (max-width: 900px) {
+      nav { padding: 16px 24px; }
+      .nav-title { display: none; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-left { padding: 60px 24px 40px; border-right: none; border-bottom: 1px solid var(--black); }
+      .hero-right { height: 280px; }
+      .sec { padding: 48px 24px; }
+      .overview-grid { grid-template-columns: 1fr; gap: 40px; }
+      .two-col { grid-template-columns: 1fr; }
+      .two-col-item { border-right: none; border-bottom: 1px solid var(--light-grey); padding: 32px 0; }
+      .structure-grid { grid-template-columns: 1fr 1fr; }
+      .str-item { border-right: none; border-bottom: 1px solid var(--light-grey); padding: 24px 0; }
+      .locations-grid { grid-template-columns: 1fr; }
+      .uikit-grid { grid-template-columns: 1fr; }
+      .uikit-col { border-right: none; border-bottom: 1px solid var(--light-grey); padding: 32px 0; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .cta-section { flex-direction: column; gap: 32px; padding: 56px 24px; align-items: flex-start; }
+      .outcome-grid { grid-template-columns: 1fr; }
+      .outcome-item { border-right: none; border-bottom: 1px solid var(--light-grey); padding: 28px 0; }
+      .next-project { flex-direction: column; gap: 32px; padding: 56px 24px; align-items: flex-start; }
+      footer { padding: 20px 24px; flex-direction: column; gap: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-back">
+      <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.2"><line x1="12" y1="7" x2="0" y2="7"/><polyline points="5,2 0,7 5,12"/></svg>
+      Back
+    </a>
+    <span class="nav-title">Travel Lux Odessa — Case Study</span>
+    <a href="https://www.figma.com/proto/ENc0iZH8UOvZ1eKPIb1o04/Trevel-Agency?node-id=682-1103&viewport=2020%2C735%2C0.21&t=mXXGOwmUGDNWkk2e-9&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=682%3A1103&show-proto-sidebar=1&page-id=551%3A552" target="_blank" rel="noopener" class="nav-cta">View Prototype</a>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-left">
+      <p class="hero-tag">Case Study · 01 · Tourism & Hospitality</p>
+      <h1 class="hero-title">Travel Lux<br><em>Odessa</em></h1>
+      <p class="hero-desc">A premium landing page for a luxury 3-day tour across the Odesa region — from the Black Sea beaches to wine culture and historic fortresses.</p>
+      <div class="hero-stats">
+        <div class="stat"><p class="stat-label">Role</p><p class="stat-val">UX/UI + Dev</p></div>
+        <div class="stat"><p class="stat-label">Industry</p><p class="stat-val">Tourism</p></div>
+        <div class="stat"><p class="stat-label">Year</p><p class="stat-val">2026</p></div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <img src="odessa-opera.png" alt="Travel Lux Odessa" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
+    </div>
+  </div>
+
+  <!-- OVERVIEW -->
+  <section class="sec reveal">
+    <p class="sec-label">Project Overview</p>
+    <div class="overview-grid">
+      <div>
+        <h2 class="sec-title">Luxury travel — presented as an editorial experience</h2>
+        <p class="overview-text">Travel Lux Odessa is a premium landing page designed for a travel agency promoting an exclusive 3-day tour across the Odesa region of Ukraine. The primary goal was to present the travel experience in a sophisticated and visually engaging way while guiding visitors toward booking the tour.</p>
+        <p class="overview-text">The website combines elegant typography, immersive photography, and a clean editorial layout to create a luxurious and memorable user experience — inspired by luxury travel magazines and high-end hospitality brands.</p>
+      </div>
+      <div>
+        <div class="meta-row"><span class="meta-key">Client</span><span class="meta-val">Travel Lux Ukraine</span></div>
+        <div class="meta-row"><span class="meta-key">My Role</span><span class="meta-val">UX/UI Designer & Front-End Developer</span></div>
+        <div class="meta-row"><span class="meta-key">Tools</span><span class="meta-val">Figma · HTML5 · CSS3 · JavaScript</span></div>
+        <div class="meta-row"><span class="meta-key">Type</span><span class="meta-val">Landing Page</span></div>
+        <div class="meta-row"><span class="meta-key">Industry</span><span class="meta-val">Tourism & Hospitality</span></div>
+        <div class="meta-row"><span class="meta-key">Technologies</span><span class="meta-val">Responsive Design · SCSS · JS</span></div>
+        <div class="meta-row"><span class="meta-key">Year</span><span class="meta-val">2026</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM & GOAL -->
+  <section class="sec reveal" style="padding-top:0;">
+    <p class="sec-label">Problem & Goal</p>
+    <div class="two-col">
+      <div class="two-col-item">
+        <p class="two-col-num">01</p>
+        <p class="two-col-title">Problem</p>
+        <p class="two-col-text">Travel agencies often struggle to communicate the premium nature of their tours online. Generic websites with stock photos and cluttered layouts fail to evoke the atmosphere of the destination — leaving potential travelers unconvinced and unbooking.</p>
+      </div>
+      <div class="two-col-item">
+        <p class="two-col-num">02</p>
+        <p class="two-col-title">Goal</p>
+        <p class="two-col-text">Create a landing page that feels like opening a luxury travel magazine — showcasing the Odessa region's beauty through immersive photography and editorial design, while strategically guiding visitors toward booking the 3-day tour.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FULL IMAGE -->
+  <div class="full-img">
+    <img src="odessa-gallery.png" alt="Travel Lux Odessa — Full View" style="width:100%;height:480px;object-fit:cover;object-position:center;display:block;">
+  </div>
+
+  <!-- WEBSITE STRUCTURE -->
+  <section class="sec reveal">
+    <p class="sec-label">Website Structure</p>
+    <h2 class="sec-title">6 sections — one clear journey to booking</h2>
+    <div class="structure-grid">
+      <div class="str-item">
+        <p class="str-num">1</p>
+        <p class="str-title">Hero</p>
+        <p class="str-desc">Striking introduction with destination imagery and clear booking call-to-action.</p>
+      </div>
+      <div class="str-item">
+        <p class="str-num">2</p>
+        <p class="str-title">About Tour</p>
+        <p class="str-desc">Overview of the 3-day experience — atmosphere, cultural discoveries, premium service.</p>
+      </div>
+      <div class="str-item">
+        <p class="str-num">3</p>
+        <p class="str-title">Itinerary</p>
+        <p class="str-desc">Three key destinations with immersive imagery and descriptive content.</p>
+      </div>
+      <div class="str-item">
+        <p class="str-num">4</p>
+        <p class="str-title">Reviews</p>
+        <p class="str-desc">Testimonials from previous travelers — credibility and social proof.</p>
+      </div>
+      <div class="str-item">
+        <p class="str-num">5</p>
+        <p class="str-title">CTA + FAQ</p>
+        <p class="str-desc">Booking CTA with pricing and accordion FAQ addressing common questions.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATIONS / ITINERARY -->
+  <section class="sec reveal" style="padding-top:0;">
+    <p class="sec-label">Tour Itinerary — Key Destinations</p>
+    <div class="locations-grid">
+      <div class="location-card">
+        <div class="location-img">
+          <img src="beach.png" alt="Sanzheika Beach" style="width:100%;height:220px;object-fit:cover;object-position:center;display:block;">
+        </div>
+        <div class="location-body">
+          <p class="location-day">Day 1</p>
+          <p class="location-name">Sanzheika Beach</p>
+          <p class="location-place">Odesa Region · Black Sea Coast</p>
+          <p class="location-text">Spend the first day on one of the cleanest sandy beaches of the Odesa region — relax by the sea, enjoy the calm coastal atmosphere and a seaside dinner at sunset.</p>
+        </div>
+      </div>
+      <div class="location-card">
+        <div class="location-img">
+          <img src="vineyard.png" alt="Shabo Wine Culture Center" style="width:100%;height:220px;object-fit:cover;object-position:center;display:block;">
+        </div>
+        <div class="location-body">
+          <p class="location-day">Day 2</p>
+          <p class="location-name">Shabo Wine Culture Center</p>
+          <p class="location-place">Shabo · Ukraine</p>
+          <p class="location-text">Dedicated to Ukrainian wine culture — walk through vineyards and underground cellars, learn about traditional winemaking, and enjoy a guided wine tasting session with a professional sommelier.</p>
+        </div>
+      </div>
+      <div class="location-card">
+        <div class="location-img">
+          <img src="fortress.png" alt="Bilhorod-Dnistrovskyi Fortress" style="width:100%;height:220px;object-fit:cover;object-position:center;display:block;">
+        </div>
+        <div class="location-body">
+          <p class="location-day">Day 3</p>
+          <p class="location-name">Bilhorod-Dnistrovskyi Fortress</p>
+          <p class="location-place">Bilhorod-Dnistrovskyi · Historic City</p>
+          <p class="location-text">Explore one of the largest medieval fortresses in Europe — take a guided tour through the ancient Akkerman Fortress and enjoy panoramic views of the Dniester Estuary.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UI KIT -->
+  <section class="sec reveal">
+    <p class="sec-label">Design System · UI Kit</p>
+    <h2 class="sec-title">Visual language of the project</h2>
+    <div class="uikit-grid">
+      <div class="uikit-col">
+        <p class="uikit-label">Color Palette</p>
+        <div class="color-swatches">
+          <div class="swatch">
+            <div class="swatch-dot" style="background:#0D0D0D;border-color:#0D0D0D;"></div>
+            <div><p class="swatch-name">Primary Black</p><p class="swatch-hex">#0D0D0D</p></div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-dot" style="background:#FAFAF8;"></div>
+            <div><p class="swatch-name">Background</p><p class="swatch-hex">#FAFAF8</p></div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-dot" style="background:#8C8C8C;"></div>
+            <div><p class="swatch-name">Secondary Grey</p><p class="swatch-hex">#8C8C8C</p></div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-dot" style="background:#F0EDE8;"></div>
+            <div><p class="swatch-name">Warm Light</p><p class="swatch-hex">#F0EDE8</p></div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-dot" style="background:#FFFFFF;"></div>
+            <div><p class="swatch-name">White</p><p class="swatch-hex">#FFFFFF</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="uikit-col">
+        <p class="uikit-label">Typography</p>
+        <div class="type-samples">
+          <div class="type-sample">
+            <p class="type-label-sm">H1 Display · Playfair Display 400</p>
+            <p style="font-family:'Playfair Display',serif;font-size:38px;font-weight:400;line-height:1;letter-spacing:-0.02em;color:#0D0D0D;">Travel Lux</p>
+          </div>
+          <div class="type-sample">
+            <p class="type-label-sm">H2 · Playfair Display Italic</p>
+            <p style="font-family:'Playfair Display',serif;font-size:24px;font-weight:400;font-style:italic;color:#0D0D0D;">About the Tour</p>
+          </div>
+          <div class="type-sample">
+            <p class="type-label-sm">H3 · Playfair Display 400</p>
+            <p style="font-family:'Playfair Display',serif;font-size:18px;font-weight:400;color:#0D0D0D;">Sanzheika Beach</p>
+          </div>
+          <div class="type-sample">
+            <p class="type-label-sm">Body · Inria Serif Light</p>
+            <p style="font-family:'Inria Serif',serif;font-size:14px;font-weight:300;color:#8C8C8C;line-height:1.7;">Travel beyond expectations and feel every destination in a new light.</p>
+          </div>
+          <div class="type-sample">
+            <p class="type-label-sm">Label · Inria Serif Uppercase</p>
+            <p style="font-family:'Inria Serif',serif;font-size:11px;font-weight:300;letter-spacing:0.18em;text-transform:uppercase;color:#8C8C8C;">Tour · Itinerary · Reviews</p>
+          </div>
+        </div>
+      </div>
+      <div class="uikit-col">
+        <p class="uikit-label">Buttons & States</p>
+        <div class="btn-samples">
+          <div>
+            <p class="type-label-sm" style="margin-bottom:8px;">Primary — Book now</p>
+            <div class="tl-btn-filled">Book now</div>
+          </div>
+          <div>
+            <p class="type-label-sm" style="margin-bottom:8px;">Secondary — Get a Consultation</p>
+            <div class="tl-btn-outline">Get a Consultation</div>
+          </div>
+          <div style="margin-top:24px;">
+            <p class="uikit-label">Icons</p>
+            <div style="display:flex;gap:20px;align-items:center;margin-top:8px;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0D0D0D" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="#0D0D0D"/></svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0D0D0D" stroke-width="1.5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0D0D0D" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="sec reveal" style="padding-top:0;">
+    <p class="sec-label">What Our Clients Say</p>
+    <h2 class="sec-title">Real reviews from verified travelers</h2>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars"><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span></div>
+        <p class="review-text">"I really loved the atmosphere of this tour — relaxed, beautiful, and full of emotion. The wine tasting at Shabo and the sunset by the sea were unforgettable."</p>
+        <p class="review-author">— Nickolas</p>
+      </div>
+      <div class="review-card">
+        <div class="review-stars"><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span></div>
+        <p class="review-text">"A perfect weekend getaway. Small group, amazing locations, and the right balance between relaxation and guided experiences. I would definitely recommend it."</p>
+        <p class="review-author">— Luke Miller</p>
+      </div>
+      <div class="review-card">
+        <div class="review-stars"><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span></div>
+        <p class="review-text">"This trip exceeded all my expectations. The combination of sea, wine, and history made every day unique. Everything was well-organized and the views were absolutely stunning."</p>
+        <p class="review-author">— Zoe Barnabed</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-section reveal">
+    <div class="cta-text">
+      <p class="cta-sub">Ready for your perfect getaway?</p>
+      <p class="cta-title">Book your 3-day journey<br>and discover <em>Odessa</em></p>
+      <p class="cta-price">From 1 500 UAH / person</p>
+    </div>
+    <a href="https://www.figma.com/proto/ENc0iZH8UOvZ1eKPIb1o04/Trevel-Agency?node-id=682-1103&viewport=2020%2C735%2C0.21&t=mXXGOwmUGDNWkk2e-9&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=682%3A1103&show-proto-sidebar=1&page-id=551%3A552" target="_blank" rel="noopener" class="cta-btn">
+      View Prototype
+      <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.2"><line x1="0" y1="7" x2="12" y2="7"/><polyline points="7,2 12,7 7,12"/></svg>
+    </a>
+  </div>
+
+  <!-- OUTCOME -->
+  <section class="sec reveal">
+    <p class="sec-label">Project Outcome</p>
+    <div class="outcome-grid">
+      <div class="outcome-item">
+        <p class="outcome-num">A–Z</p>
+        <p class="outcome-label">Full Ownership</p>
+        <p class="outcome-desc">From UX research and wireframes to UI design, front-end development and responsive optimization.</p>
+      </div>
+      <div class="outcome-item">
+        <p class="outcome-num">6</p>
+        <p class="outcome-label">Key Sections</p>
+        <p class="outcome-desc">Hero, About the Tour, Itinerary with 3 destinations, Reviews, CTA, FAQ — each designed for conversion.</p>
+      </div>
+      <div class="outcome-item">
+        <p class="outcome-num">100%</p>
+        <p class="outcome-label">Responsive</p>
+        <p class="outcome-desc">Fully responsive across all screen sizes with performance optimization and modern UI principles.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEXT PROJECT -->
+  <div class="next-project">
+    <div>
+      <p class="next-label">Next Case Study</p>
+      <p class="next-title">Maison Virelle</p>
+    </div>
+    <a href="maison-virelle-case.html" class="next-btn">
+      View Case
+      <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.2"><line x1="0" y1="7" x2="12" y2="7"/><polyline points="7,2 12,7 7,12"/></svg>
+    </a>
+  </div>
+
+  <footer>
+    <p>Alexandra Solohub — UX/UI Designer</p>
+    <p>2026</p>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  
+    // CUSTOM CURSOR + TRAIL
+    (function(){
+      if ('ontouchstart' in window) return;
+      var cur = document.createElement('div');
+      cur.style.cssText = 'position:fixed;top:0;left:0;z-index:9999;width:10px;height:10px;background:#000;border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);mix-blend-mode:difference;transition:width 0.2s,height 0.2s;';
+      document.body.appendChild(cur);
+      var ring = document.createElement('div');
+      ring.style.cssText = 'position:fixed;top:0;left:0;z-index:9998;width:32px;height:32px;border:1px solid rgba(0,0,0,0.3);border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);transition:left 0.35s ease,top 0.35s ease,width 0.2s,height 0.2s;';
+      document.body.appendChild(ring);
+      document.body.style.cursor = 'none';
+      var last = 0;
+      document.addEventListener('mousemove', function(e){
+        cur.style.left = e.clientX+'px'; cur.style.top = e.clientY+'px';
+        ring.style.left = e.clientX+'px'; ring.style.top = e.clientY+'px';
+        if (Date.now()-last > 40) {
+          last = Date.now();
+          var d = document.createElement('div');
+          var s = Math.random()*3+2;
+          d.style.cssText = 'position:fixed;z-index:9997;width:'+s+'px;height:'+s+'px;background:#000;border-radius:50%;pointer-events:none;left:'+e.clientX+'px;top:'+e.clientY+'px;transform:translate(-50%,-50%);opacity:0.7;transition:opacity 0.6s,transform 0.6s;';
+          document.body.appendChild(d);
+          requestAnimationFrame(function(){requestAnimationFrame(function(){ d.style.opacity='0'; d.style.transform='translate(-50%,-50%) scale(0.3)'; });});
+          setTimeout(function(){d.remove();}, 650);
+        }
+      });
+      document.querySelectorAll('a,button').forEach(function(el){
+        el.style.cursor='none';
+        el.addEventListener('mouseenter',function(){cur.style.width='20px';cur.style.height='20px';ring.style.width='48px';ring.style.height='48px';});
+        el.addEventListener('mouseleave',function(){cur.style.width='10px';cur.style.height='10px';ring.style.width='32px';ring.style.height='32px';});
+      });
+    })();
+  </script>
+</body>
+</html>
