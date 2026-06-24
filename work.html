@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Work · Alexandra Solohub</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black: #000;
+      --white: #fff;
+      --grey: #868686;
+      --light-grey: #D2D2D2;
+      --off-white: #F8F8F6;
+      --serif: 'Inria Serif', Georgia, serif;
+      --display: 'Playfair Display', Georgia, serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--serif); background: var(--white); color: var(--black); -webkit-font-smoothing: antialiased; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 18px 48px;
+      background: rgba(255,255,255,0.96); backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--black);
+    }
+    .nav-back { display: flex; align-items: center; gap: 10px; font-family: var(--serif); font-size: 12px; font-weight: 300; letter-spacing: 0.14em; text-transform: uppercase; color: var(--grey); text-decoration: none; transition: color 0.2s; }
+    .nav-back:hover { color: var(--black); }
+    .nav-back svg { width: 14px; height: 14px; }
+    .nav-logo { font-family: var(--display); font-size: 16px; font-weight: 400; color: var(--black); text-decoration: none; }
+
+    /* HERO */
+    .hero {
+      padding: 160px 48px 80px;
+      border-bottom: 1px solid var(--black);
+      background: var(--off-white);
+    }
+    .hero-eyebrow { font-family: var(--serif); font-size: 11px; font-weight: 300; letter-spacing: 0.22em; text-transform: uppercase; color: var(--grey); margin-bottom: 20px; }
+    .hero-title { font-family: var(--display); font-size: clamp(48px, 8vw, 96px); font-weight: 400; line-height: 1; letter-spacing: -0.02em; color: var(--black); margin-bottom: 24px; }
+    .hero-title em { font-style: italic; }
+    .hero-sub { font-family: var(--serif); font-size: 18px; font-weight: 300; color: var(--grey); line-height: 1.7; max-width: 480px; }
+
+    /* PROJECT BLOCK */
+    .project { border-bottom: 1px solid var(--black); }
+
+    /* PROJECT HEADER */
+    .project-header {
+      display: grid; grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid var(--black);
+    }
+    .project-header-left { padding: 56px 48px; border-right: 1px solid var(--black); }
+    .project-header-right { padding: 56px 48px; display: flex; flex-direction: column; justify-content: space-between; }
+    .proj-num { font-family: var(--display); font-size: 64px; font-weight: 400; font-style: italic; color: var(--light-grey); line-height: 1; margin-bottom: 16px; }
+    .proj-title { font-family: var(--display); font-size: clamp(28px, 4vw, 48px); font-weight: 400; line-height: 1.05; letter-spacing: -0.02em; color: var(--black); margin-bottom: 12px; }
+    .proj-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 20px; }
+    .tag { font-family: var(--serif); font-size: 11px; font-weight: 300; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid var(--black); padding: 4px 12px; color: var(--black); }
+    .proj-desc { font-family: var(--serif); font-size: 16px; font-weight: 300; color: var(--grey); line-height: 1.8; letter-spacing: -0.01em; }
+    .proj-meta { display: flex; flex-direction: column; gap: 0; }
+    .proj-meta-row { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--light-grey); }
+    .proj-meta-row:first-child { border-top: 1px solid var(--light-grey); }
+    .proj-meta-key { font-family: var(--serif); font-size: 11px; font-weight: 300; letter-spacing: 0.14em; text-transform: uppercase; color: var(--grey); }
+    .proj-meta-val { font-family: var(--serif); font-size: 13px; font-weight: 300; color: var(--black); }
+    .proj-btns { display: flex; gap: 12px; margin-top: 32px; flex-wrap: wrap; }
+    .btn-filled { display: inline-flex; align-items: center; gap: 10px; font-family: var(--serif); font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--white); background: var(--black); border: 1px solid var(--black); padding: 13px 28px; text-decoration: none; transition: background 0.2s, color 0.2s; }
+    .btn-filled:hover { background: transparent; color: var(--black); }
+    .btn-outline { display: inline-flex; align-items: center; gap: 10px; font-family: var(--serif); font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--black); background: transparent; border: 1px solid var(--black); padding: 13px 28px; text-decoration: none; transition: background 0.2s, color 0.2s; }
+    .btn-outline:hover { background: var(--black); color: var(--white); }
+    .btn-filled svg, .btn-outline svg { width: 13px; height: 13px; flex-shrink: 0; }
+
+    /* MOCKUP AREA */
+    .mockup-area { padding: 80px 48px; background: var(--off-white); position: relative; }
+    .mockup-area-dark { padding: 80px 48px; background: #111; position: relative; }
+
+    /* LAPTOP MOCKUP */
+    .laptop-mockup {
+      position: relative;
+      width: 100%;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .laptop-body {
+      background: #1a1a1a;
+      border-radius: 12px 12px 0 0;
+      padding: 10px 10px 0;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.25);
+    }
+    .laptop-screen {
+      background: #000;
+      border-radius: 6px 6px 0 0;
+      overflow: hidden;
+      aspect-ratio: 16/10;
+      position: relative;
+    }
+    .laptop-screen::before {
+      content: '';
+      position: absolute;
+      top: 8px; left: 50%; transform: translateX(-50%);
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #333;
+      z-index: 2;
+    }
+    .laptop-screen img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+    }
+    .laptop-base {
+      background: #2a2a2a;
+      height: 18px;
+      border-radius: 0 0 4px 4px;
+      position: relative;
+    }
+    .laptop-base::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 50%; transform: translateX(-50%);
+      width: 60px; height: 4px;
+      background: #1a1a1a;
+      border-radius: 0 0 4px 4px;
+    }
+    .laptop-stand {
+      width: 140px;
+      height: 8px;
+      background: #222;
+      margin: 0 auto;
+      border-radius: 0 0 8px 8px;
+    }
+
+    /* TABLET MOCKUP */
+    .tablet-mockup {
+      position: relative;
+      width: 260px;
+      flex-shrink: 0;
+    }
+    .tablet-body {
+      background: #1a1a1a;
+      border-radius: 16px;
+      padding: 14px 10px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    .tablet-screen {
+      background: #000;
+      border-radius: 8px;
+      overflow: hidden;
+      aspect-ratio: 3/4;
+    }
+    .tablet-screen img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+    }
+    .tablet-home {
+      width: 32px; height: 3px;
+      background: #333;
+      border-radius: 2px;
+      margin: 10px auto 0;
+    }
+
+    /* PHONE MOCKUP */
+    .phone-mockup {
+      position: relative;
+      width: 160px;
+      flex-shrink: 0;
+    }
+    .phone-body {
+      background: #1a1a1a;
+      border-radius: 28px;
+      padding: 10px 6px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+      position: relative;
+    }
+    .phone-body::before {
+      content: '';
+      position: absolute;
+      top: 14px; left: 50%; transform: translateX(-50%);
+      width: 48px; height: 4px;
+      background: #333;
+      border-radius: 2px;
+      z-index: 2;
+    }
+    .phone-screen {
+      background: #000;
+      border-radius: 20px;
+      overflow: hidden;
+      aspect-ratio: 9/19.5;
+    }
+    .phone-screen img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+    }
+    .phone-home {
+      width: 40px; height: 3px;
+      background: #333;
+      border-radius: 2px;
+      margin: 8px auto 0;
+    }
+
+    /* MULTI DEVICE LAYOUT */
+    .devices-main {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .devices-secondary {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 48px;
+      flex-wrap: wrap;
+    }
+
+    /* LAPTOP + PHONE COMBO (project 1) */
+    .combo-1 {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 0;
+      position: relative;
+    }
+    .combo-1 .laptop-mockup { flex: 1; max-width: 680px; }
+    .combo-1 .phone-mockup {
+      position: absolute;
+      right: -20px;
+      bottom: 30px;
+    }
+
+    /* LAPTOP + TABLET + PHONE (project 2) */
+    .combo-2 {
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      align-items: flex-end;
+      gap: 24px;
+    }
+
+    /* SECTION DIVIDER */
+    .inner-divider { height: 1px; background: var(--light-grey); margin: 48px 0; }
+
+    /* REVEAL */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* CONTACT STRIP */
+    .contact-strip {
+      padding: 80px 48px;
+      display: flex; justify-content: space-between; align-items: center;
+      background: var(--black);
+    }
+    .contact-strip-left p:first-child { font-family: var(--serif); font-size: 11px; font-weight: 300; letter-spacing: 0.2em; text-transform: uppercase; color: var(--grey); margin-bottom: 12px; }
+    .contact-strip-title { font-family: var(--display); font-size: clamp(32px, 5vw, 56px); font-weight: 400; color: var(--white); letter-spacing: -0.02em; }
+
+    footer { padding: 24px 48px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--black); }
+    footer p { font-family: var(--serif); font-size: 11px; font-weight: 300; color: var(--grey); letter-spacing: 0.08em; text-transform: uppercase; }
+
+    @media (max-width: 900px) {
+      nav { padding: 16px 24px; }
+      .hero { padding: 120px 24px 56px; }
+      .project-header { grid-template-columns: 1fr; }
+      .project-header-left { border-right: none; border-bottom: 1px solid var(--black); padding: 40px 24px; }
+      .project-header-right { padding: 40px 24px; }
+      .mockup-area, .mockup-area-dark { padding: 48px 24px; }
+      .combo-1 { flex-direction: column; align-items: center; }
+      .combo-1 .phone-mockup { position: static; margin-top: 24px; }
+      .combo-2 { grid-template-columns: 1fr; justify-items: center; }
+      .contact-strip { flex-direction: column; gap: 32px; padding: 56px 24px; align-items: flex-start; }
+      footer { padding: 20px 24px; flex-direction: column; gap: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-back">
+      <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.2"><line x1="12" y1="7" x2="0" y2="7"/><polyline points="5,2 0,7 5,12"/></svg>
+      Portfolio
+    </a>
+    <a href="index.html" class="nav-logo">Alexandra Solohub</a>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <p class="hero-eyebrow">Selected Work · 2026</p>
+    <h1 class="hero-title">My <em>Projects</em></h1>
+    <p class="hero-sub">Two projects designed and developed from scratch — a luxury travel experience and a couture fashion e-commerce platform.</p>
+  </div>
+
+  <!-- PROJECT 01: TRAVEL LUX -->
+  <div class="project">
+    <div class="project-header reveal">
+      <div class="project-header-left">
+        <p class="proj-num">01</p>
+        <h2 class="proj-title">Travel Lux Odessa</h2>
+        <div class="proj-tags">
+          <span class="tag">Landing Page</span>
+          <span class="tag">Tourism</span>
+          <span class="tag">UI Design</span>
+          <span class="tag">Dev</span>
+        </div>
+        <p class="proj-desc">A premium travel landing page for a luxury 3-day tour across the Odesa region of Ukraine — from Black Sea beaches to wine culture and medieval fortresses.</p>
+      </div>
+      <div class="project-header-right">
+        <div class="proj-meta">
+          <div class="proj-meta-row"><span class="proj-meta-key">Role</span><span class="proj-meta-val">UX/UI Designer & Developer</span></div>
+          <div class="proj-meta-row"><span class="proj-meta-key">Tools</span><span class="proj-meta-val">Figma · HTML · CSS · JS</span></div>
+          <div class="proj-meta-row"><span class="proj-meta-key">Industry</span><span class="proj-meta-val">Tourism & Hospitality</span></div>
+          <div class="proj-meta-row"><span class="proj-meta-key">Year</span><span class="proj-meta-val">2026</span></div>
+        </div>
+        <div class="proj-btns">
+          <a href="travel-lux-case.html" class="btn-filled">
+            View Case Study
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.2"><line x1="0" y1="7" x2="12" y2="7"/><polyline points="7,2 12,7 7,12"/></svg>
+          </a>
+          <a href="https://www.figma.com/proto/ENc0iZH8UOvZ1eKPIb1o04/Trevel-Agency?node-id=682-1103&viewport=2020%2C735%2C0.21&t=mXXGOwmUGDNWkk2e-9&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=682%3A1103&show-proto-sidebar=1&page-id=551%3A552" target="_blank" rel="noopener" class="btn-outline">
+            Prototype
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.2"><line x1="0" y1="7" x2="12" y2="7"/><polyline points="7,2 12,7 7,12"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- LAPTOP + PHONE MOCKUP -->
+    <div class="mockup-area reveal">
+      <div style="position:relative;max-width:860px;margin:0 auto;">
+        <!-- Laptop -->
+        <div class="laptop-mockup">
+          <div class="laptop-body">
+            <div class="laptop-screen">
+              <img src="odessa-gallery.png" alt="Travel Lux Odessa on laptop">
+            </div>
+          </div>
+          <div class="laptop-base"></div>
+          <div class="laptop-stand"></div>
+        </div>
+        <!-- Phone overlapping -->
+        <div class="phone-mockup" style="position:absolute;right:-16px;bottom:32px;">
+          <div class="phone-body">
+            <div class="phone-screen">
+              <img src="odessa-opera.png" alt="Travel Lux Odessa on mobile">
+            </div>
+            <div class="phone-home"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TABLET STANDALONE -->
+    <div class="mockup-area" style="background:#F0EDE8;padding-top:0;display:flex;justify-content:center;">
+      <div class="tablet-mockup" style="width:340px;">
+        <div class="tablet-body">
+          <div class="tablet-screen">
+            <img src="travel-lux.png" alt="Travel Lux Odessa on tablet">
+          </div>
+          <div class="tablet-home"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECT 02: MAISON VIRELLE -->
+  <div class="project">
+    <div class="project-header reveal">
+      <div class="project-header-left">
+        <p class="proj-num">02</p>
+        <h2 class="proj-title">Maison Virelle</h2>
+        <div class="proj-tags">
+          <span class="tag">E-commerce</span>
+          <span class="tag">Fashion</span>
+          <span class="tag">Art Direction</span>
+          <span class="tag">Dev</span>
+        </div>
+        <p class="proj-desc">A conceptual luxury couture e-commerce that transforms an online store into a premium digital fashion experience — a virtual showroom where every collection tells a story.</p>
+      </div>
+      <div class="project-header-right">
+        <div class="proj-meta">
+          <div class="proj-meta-row"><span class="proj-meta-key">Role</span><span class="proj-meta-val">UX/UI · Art Direction · Dev</span></div>
+          <div class="proj-meta-row"><span class="proj-meta-key">Tools</span><span class="proj-meta-val">Figma · HTML · CSS · JS</span></div>
+          <div class="proj-meta-row"><span class="proj-meta-key">Industry</span><span class="proj-meta-val">Haute Couture · Fashion</span></div>
+          <div class="proj-meta-row"><span class="proj-meta-key">Year</span><span class="proj-meta-val">2026</span></div>
+        </div>
+        <div class="proj-btns">
+          <a href="maison-virelle-case.html" class="btn-filled">
+            View Case Study
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.2"><line x1="0" y1="7" x2="12" y2="7"/><polyline points="7,2 12,7 7,12"/></svg>
+          </a>
+          <a href="https://www.figma.com/proto/fgxl33ykRcTF6CnhHWdnRs/MAISON-VIRELLE?node-id=111-489&viewport=864%2C261%2C0.25&t=vlGmfm0DIcskKjf5-9&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=111%3A489&page-id=110%3A487&show-proto-sidebar=1" target="_blank" rel="noopener" class="btn-outline">
+            Prototype
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.2"><line x1="0" y1="7" x2="12" y2="7"/><polyline points="7,2 12,7 7,12"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- LAPTOP FULL WIDTH -->
+    <div class="mockup-area-dark reveal">
+      <div class="laptop-mockup" style="max-width:800px;margin:0 auto;">
+        <div class="laptop-body">
+          <div class="laptop-screen">
+            <img src="mv-hero.png" alt="Maison Virelle on laptop">
+          </div>
+        </div>
+        <div class="laptop-base"></div>
+        <div class="laptop-stand"></div>
+      </div>
+    </div>
+
+    <!-- TABLET + PHONE SIDE BY SIDE -->
+    <div class="mockup-area-dark reveal" style="padding-top:0;">
+      <div style="display:flex;align-items:flex-end;justify-content:center;gap:40px;flex-wrap:wrap;">
+        <div class="tablet-mockup" style="width:300px;">
+          <div class="tablet-body">
+            <div class="tablet-screen">
+              <img src="mv-collection.png" alt="Maison Virelle on tablet">
+            </div>
+            <div class="tablet-home"></div>
+          </div>
+        </div>
+        <div class="phone-mockup">
+          <div class="phone-body">
+            <div class="phone-screen">
+              <img src="mv-hero.png" alt="Maison Virelle on mobile">
+            </div>
+            <div class="phone-home"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="contact-strip reveal">
+    <div class="contact-strip-left">
+      <p>Have a project in mind?</p>
+      <p class="contact-strip-title">Let's work<br><em style="font-family:var(--display);font-style:italic;">together.</em></p>
+    </div>
+    <a href="index.html#contact" class="btn-filled" style="border-color:#fff;background:#fff;color:#000;">
+      Get in touch
+      <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.2"><line x1="0" y1="7" x2="12" y2="7"/><polyline points="7,2 12,7 7,12"/></svg>
+    </a>
+  </div>
+
+  <footer>
+    <p>Alexandra Solohub — UX/UI Designer</p>
+    <p>2026</p>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  
+    // CUSTOM CURSOR + TRAIL
+    (function(){
+      if ('ontouchstart' in window) return;
+      var cur = document.createElement('div');
+      cur.style.cssText = 'position:fixed;top:0;left:0;z-index:9999;width:10px;height:10px;background:#000;border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);mix-blend-mode:difference;transition:width 0.2s,height 0.2s;';
+      document.body.appendChild(cur);
+      var ring = document.createElement('div');
+      ring.style.cssText = 'position:fixed;top:0;left:0;z-index:9998;width:32px;height:32px;border:1px solid rgba(0,0,0,0.3);border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);transition:left 0.35s ease,top 0.35s ease,width 0.2s,height 0.2s;';
+      document.body.appendChild(ring);
+      document.body.style.cursor = 'none';
+      var last = 0;
+      document.addEventListener('mousemove', function(e){
+        cur.style.left = e.clientX+'px'; cur.style.top = e.clientY+'px';
+        ring.style.left = e.clientX+'px'; ring.style.top = e.clientY+'px';
+        if (Date.now()-last > 40) {
+          last = Date.now();
+          var d = document.createElement('div');
+          var s = Math.random()*3+2;
+          d.style.cssText = 'position:fixed;z-index:9997;width:'+s+'px;height:'+s+'px;background:#000;border-radius:50%;pointer-events:none;left:'+e.clientX+'px;top:'+e.clientY+'px;transform:translate(-50%,-50%);opacity:0.7;transition:opacity 0.6s,transform 0.6s;';
+          document.body.appendChild(d);
+          requestAnimationFrame(function(){requestAnimationFrame(function(){ d.style.opacity='0'; d.style.transform='translate(-50%,-50%) scale(0.3)'; });});
+          setTimeout(function(){d.remove();}, 650);
+        }
+      });
+      document.querySelectorAll('a,button').forEach(function(el){
+        el.style.cursor='none';
+        el.addEventListener('mouseenter',function(){cur.style.width='20px';cur.style.height='20px';ring.style.width='48px';ring.style.height='48px';});
+        el.addEventListener('mouseleave',function(){cur.style.width='10px';cur.style.height='10px';ring.style.width='32px';ring.style.height='32px';});
+      });
+    })();
+  </script>
+</body>
+</html>
